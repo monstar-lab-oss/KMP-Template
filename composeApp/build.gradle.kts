@@ -41,6 +41,7 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.bundles.paging.android)
+            api(libs.androidx.startup)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
@@ -59,6 +60,7 @@ kotlin {
             implementation(libs.bundles.coil)
             implementation(libs.bundles.paging)
             api(libs.kmm.viewmodel.core)
+            implementation(libs.androidx.datastore.preferences.core)
         }
         commonTest.dependencies {
             implementation(kotlin("test-common"))
