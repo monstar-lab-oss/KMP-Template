@@ -13,6 +13,7 @@ androidx-test-junit = "1.1.5"
 coil = "3.0.0-alpha03"
 compose = "1.6.4"
 compose-plugin = "1.6.0"
+datastorePreferencesCore = "1.1.0-beta01"
 junit = "5.10.2"
 kotlin = "1.9.22"
 kotlin-dokka = "1.9.0"
@@ -27,8 +28,11 @@ nativecoroutines = "1.0.0-ALPHA-25"
 kmmViewmodelCore = "1.0.0-ALPHA-19"
 spotless = "6.19.0"
 detekt = "1.23.5"
+androidx-startup = "1.1.1"
 
 [libraries]
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastorePreferencesCore" }
+androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
