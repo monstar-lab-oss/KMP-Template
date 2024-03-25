@@ -1,24 +1,23 @@
-package domain.usecase
+package domain.usecase.favorite
 
-import domain.model.ProductList
-import domain.usecase.product.GetProductsUseCase
+import domain.model.Product
 import fakes.FakeDataSource
-import fakes.FakeProductRepository
+import fakes.FakeFavoriteRepository
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class GetProductsUseCaseTest {
-    private lateinit var sut: GetProductsUseCase
+class GetFavoritesUseCaseTest {
+    private lateinit var sut: GetFavoritesUseCase
 
     @Test
     fun `invoke returns Success`() = runTest {
         // Arrange
-        sut = GetProductsUseCase(FakeProductRepository(true))
-        val assertedResponse = FakeDataSource.productList
+        sut = GetFavoritesUseCase(FakeFavoriteRepository(true))
+        val assertedResponse = listOf(FakeDataSource.product)
 
         // Act
-        lateinit var actualResponse: ProductList
+        lateinit var actualResponse: List<Product>
         sut().collect { result -> result.onSuccess { actualResponse = it } }
 
         // Assert
@@ -28,8 +27,8 @@ class GetProductsUseCaseTest {
     @Test
     fun `invoke returns Failure`() = runTest {
         // Arrange
-        sut = GetProductsUseCase(FakeProductRepository(false))
-        val assertedResponse = "No Data"
+        sut = GetFavoritesUseCase(FakeFavoriteRepository(false))
+        val assertedResponse = "Error"
 
         // Act
         lateinit var actualResponse: String

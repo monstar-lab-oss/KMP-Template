@@ -1,0 +1,38 @@
+import kotlin.String;
+import kotlin.collections.List;
+
+CREATE TABLE ProductDB (
+    id INTEGER NOT NULL PRIMARY KEY,
+    brand TEXT NOT NULL,
+    category TEXT NOT NULL,
+    description TEXT NOT NULL,
+    discountPercentage REAL NOT NULL,
+    rating REAL NOT NULL,
+    price INTEGER NOT NULL,
+    stock INTEGER NOT NULL,
+    thumbnail TEXT NOT NULL,
+    title TEXT NOT NULL,
+    images TEXT AS List<String> NOT NULL
+);
+
+selectAll:
+SELECT * FROM ProductDB;
+
+insertProduct:
+INSERT OR IGNORE INTO ProductDB(
+    id,
+    brand,
+    category,
+    description,
+    discountPercentage,
+    rating,
+    price,
+    stock,
+    thumbnail,
+    title,
+    images
+)
+VALUES ?;
+
+deleteProduct:
+DELETE FROM ProductDB WHERE id = ?;

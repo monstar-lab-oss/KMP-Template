@@ -20,6 +20,7 @@ import app.cash.paging.LoadStateNotLoading
 import app.cash.paging.compose.collectAsLazyPagingItems
 import cafe.adriel.voyager.core.screen.Screen
 import presentation.theme.Theme
+import presentation.feature.home.ProductItemView
 
 object PaginatedHomeScreen : Screen {
 
@@ -58,7 +59,9 @@ object PaginatedHomeScreen : Screen {
                         is LoadStateNotLoading -> {
                             items(productList.itemCount) { index ->
                                 val product = productList[index]
-                                product?.let { ProductItemView(it) {} }
+                                product?.let {
+                                    ProductItemView(it, false, {}, {})
+                                }
                             }
                         }
 
