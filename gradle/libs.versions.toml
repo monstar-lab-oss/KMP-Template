@@ -20,12 +20,13 @@ kotlinx-coroutines = "1.8.0"
 pagingCommon = "3.3.0-alpha02-0.4.0"
 pagingAndroid = "3.3.0-alpha02"
 voyager = "1.0.0"
-koin = "3.4.3"
-ktor = "2.3.7"
+koin = "3.5.3"
+ktor = "2.3.9"
 ksp = "1.9.22-1.0.17"
 nativecoroutines = "1.0.0-ALPHA-25"
 kmmViewmodelCore = "1.0.0-ALPHA-19"
-spotless = "6.19.0"
+sqldelight = "2.0.1"
+spotless = "6.25.0"
 detekt = "1.23.5"
 
 [libraries]
@@ -72,6 +73,14 @@ paging-compose-common = { module = "app.cash.paging:paging-compose-common", vers
 paging-runtime-uikit = { module = "app.cash.paging:paging-runtime-uikit", version.ref = "pagingCommon" }
 paging-compose-androidx = { module = "androidx.paging:paging-compose", version.ref = "pagingAndroid" }
 paging-runtime-androidx = { module = "androidx.paging:paging-runtime", version.ref = "pagingAndroid" }
+paging-common-test = { module = "app.cash.paging:paging-testing", version.ref = "pagingCommon" }
+
+sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqldelight" }
+sqldelight-coroutines-extensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+sqldelight-paging3-extensions = { module = "app.cash.sqldelight:androidx-paging3-extensions", version.ref = "sqldelight" }
+sqldelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqldelight" }
+sqldelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 
 [bundles]
 voyager = ["voyager-navigator", "voyager-bottomSheetNavigator", "voyager-tabNavigator", "voyager-transitions", "voyager-koin"]
@@ -79,6 +88,7 @@ ktor = ["ktor-client-core", "ktor-client-logging", "ktor-client-auth", "ktor-ser
 coil = ["coil-compose", "coil-network-ktor"]
 paging = ["paging-common", "paging-compose-common"]
 paging-android = ["paging-compose-androidx", "paging-runtime-androidx"]
+sqldelight = ["sqldelight-runtime", "sqldelight-coroutines-extensions", "sqldelight-paging3-extensions", "sqldelight-primitive-adapters"]
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -88,6 +98,7 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 nativecoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativecoroutines" }
+sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin-dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin-dokka" }

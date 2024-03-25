@@ -1,4 +1,4 @@
-package domain.usecase
+package domain.usecase.product
 
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import domain.repository.ProductRepository
@@ -8,5 +8,6 @@ import kotlinx.coroutines.flow.flowOn
 
 class GetProductsUseCase(private val repository: ProductRepository) {
     @NativeCoroutines
-    operator fun invoke() = flow { emit(repository.getProducts()) }.flowOn(Dispatchers.Default)
+    operator fun invoke() = flow { emit(runCatching { repository.getProducts() }) }
+        .flowOn(Dispatchers.Default)
 }

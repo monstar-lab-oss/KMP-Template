@@ -1,5 +1,3 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
@@ -7,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.nativecoroutines)
+    alias(libs.plugins.sqldelight)
 }
 
 kotlin {
@@ -30,34 +29,31 @@ kotlin {
     }
     
     sourceSets {
-        all {
-            languageSettings {
-                optIn("kotlin.experimental.ExperimentalObjCName")
-                optIn("kotlinx.cinterop.ExperimentalForeignApi")
-            }
-        }
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.bundles.paging.android)
+            implementation(libs.sqldelight.android.driver)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.paging.runtime.uikit)
+            implementation(libs.sqldelight.native.driver)
         }
         commonMain.dependencies {
+            implementation(compose.components.resources)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
+            implementation(compose.materialIconsExtended)
             implementation(libs.bundles.voyager)
             implementation(libs.koin.core)
             implementation(libs.bundles.ktor)
             implementation(libs.bundles.coil)
             implementation(libs.bundles.paging)
+            implementation(libs.bundles.sqldelight)
             api(libs.kmm.viewmodel.core)
         }
         commonTest.dependencies {
@@ -65,6 +61,7 @@ kotlin {
             implementation(kotlin("test-annotations-common"))
             implementation(libs.koin.test)
             implementation(libs.kotlinx.coroutines.test)
+            implementation(libs.paging.common.test)
         }
     }
 }
@@ -100,5 +97,20 @@ android {
     }
     dependencies {
         debugImplementation(libs.compose.ui.tooling)
+    }
+}
+
+kotlin.sourceSets.all {
+    languageSettings {
+        optIn("kotlin.experimental.ExperimentalObjCName")
+        optIn("kotlinx.cinterop.ExperimentalForeignApi")
+    }
+}
+
+sqldelight {
+    databases {
+        create("ProductDatabase") {
+            packageName.set("com.monstarlab.kmp")
+        }
     }
 }

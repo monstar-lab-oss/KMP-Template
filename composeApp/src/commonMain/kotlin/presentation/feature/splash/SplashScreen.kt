@@ -20,12 +20,11 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import kmp_template.composeapp.generated.resources.Res
 import kmp_template.composeapp.generated.resources.compose_multiplatform
+import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import platform.Greeting
 import presentation.feature.login.LoginScreen
-import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.Resource
 
 object SplashScreen : Screen {
 

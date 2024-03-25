@@ -1,4 +1,4 @@
-package domain.usecase
+package domain.usecase.product
 
 import app.cash.paging.Pager
 import app.cash.paging.PagingConfig
