@@ -6,9 +6,9 @@ import app.cash.paging.PagingSourceLoadResult
 import app.cash.paging.PagingSourceLoadResultError
 import app.cash.paging.PagingSourceLoadResultPage
 import app.cash.paging.PagingState
-import data.model.ProductsResponse
-import data.model.toDomainModel
 import data.network.ApiService
+import data.network.responses.ProductsResponse
+import data.network.responses.toDomainModel
 import domain.model.Product
 import io.ktor.client.call.body
 import io.ktor.http.isSuccess

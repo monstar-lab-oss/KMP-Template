@@ -1,8 +1,8 @@
 package data.repository
 
-import data.model.ProductsResponse
-import data.model.toDomainModel
 import data.network.ApiService
+import data.network.responses.ProductsResponse
+import data.network.responses.toDomainModel
 import domain.repository.ProductRepository
 import io.ktor.client.call.body
 

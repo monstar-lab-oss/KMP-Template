@@ -1,4 +1,4 @@
-package data.model
+package data.network.responses
 
 import domain.model.Product
 import domain.model.ProductList

@@ -7,13 +7,13 @@ import androidx.compose.material.Shapes
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import presentation.theme.typography.Typography
 import presentation.theme.dimensions.Dimensions
 import presentation.theme.dimensions.LocalDimensions
 import presentation.theme.dimensions.ProvideDimensions
 import presentation.theme.typography.AppTypography
 import presentation.theme.typography.LocalAppTypography
 import presentation.theme.typography.ProvideAppTypography
+import presentation.theme.typography.Typography
 
 /**
  * Main theme provider

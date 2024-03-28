@@ -25,7 +25,6 @@ import org.jetbrains.compose.resources.painterResource
 import platform.Greeting
 import presentation.feature.login.LoginScreen
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.Resource
 
 object SplashScreen : Screen {
 
